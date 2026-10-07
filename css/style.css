@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+}
+
+/* === Экран выбора CEFR === */
+.cefr-screen {
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+}
+
+.cefr-screen h1 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.cefr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.cefr-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.cefr-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cefr-card.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cefr-card.locked:hover {
+    transform: none;
+}
+
+.cefr-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.cefr-info {
+    flex: 1;
+    text-align: left;
+}
+
+.cefr-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.cefr-desc {
+    font-size: 13px;
+    color: #999;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.cefr-progress {
+    height: 6px;
+    background: #f0f0f5;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.cefr-progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+
+.cefr-right {
+    flex-shrink: 0;
+}
+
+.btn-reset {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-reset:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* === Экран выбора подуровня === */
+.level-screen {
+    animation: fadeIn 0.3s ease;
+}
+
+.level-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 65vh;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.level-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.level-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.level-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+}
+
+.level-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.12s, box-shadow 0.12s;
+    flex-shrink: 0;
+}
+
+.level-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.level-card.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.level-card.locked:hover {
+    transform: none;
+}
+
+.level-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.level-emoji {
+    font-size: 24px;
+}
+
+.level-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #333;
+}
+
+.level-desc {
+    font-size: 12px;
+    color: #aaa;
+    font-weight: 600;
+}
+
+.level-stars {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.level-lock {
+    font-size: 20px;
+}
+
+/* === Игровой экран === */
+.game-screen {
+    animation: fadeIn 0.3s ease;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-back {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+header h1 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.stats {
+    display: flex;
+    gap: 10px;
+}
+
+.stats span {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.card-emoji {
+    font-size: 120px;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+    line-height: 1;
+}
+
+.card-body {
+    padding: 28px;
+}
+
+.hint {
+    font-size: 20px;
+    color: #b0b0c0;
+    letter-spacing: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+#answer {
+    width: 100%;
+    padding: 16px 18px;
+    font-size: 18px;
+    border: 3px solid #e8e8f0;
+    border-radius: 14px;
+    font-family: inherit;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+#answer:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 0 4px rgba(118, 75, 162, 0.15);
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.btn-primary {
+    flex: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    font-family: inherit;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(118, 75, 162, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    flex: 1;
+    background: #f0f0f5;
+    color: #764ba2;
+    border: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    font-family: inherit;
+}
+
+.btn-secondary:hover {
+    background: #e0e0ea;
+    transform: translateY(-2px);
+}
+
+.feedback {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    min-height: 24px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.feedback.correct {
+    color: #fff;
+    background: #4caf50;
+}
+
+.feedback.wrong {
+    color: #fff;
+    background: #f44336;
+}
+
+.progress-bar {
+    margin-top: 24px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #fff;
+    width: 0;
+    transition: width 0.4s ease;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* === Экран результата === */
+.result-screen {
+    background: #fff;
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    animation: slideIn 0.4s ease;
+}
+
+.result-emoji {
+    font-size: 64px;
+    margin-bottom: 16px;
+}
+
+.result-screen h2 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.result-screen p {
+    font-size: 17px;
+    margin-bottom: 28px;
+    color: #666;
+    font-weight: 600;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.result-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: #764ba2;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px;
+}
+
+.btn-text:hover {
+    text-decoration: underline;
+}

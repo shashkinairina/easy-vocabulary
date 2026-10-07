@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Vocabulary — учим английский</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Экран выбора CEFR -->
+        <div id="cefr-screen" class="cefr-screen">
+            <h1>📖 Easy Vocabulary</h1>
+            <p class="subtitle">Выберите уровень знания английского</p>
+            <div id="cefr-list" class="cefr-list"></div>
+            <button id="reset-progress" class="btn-reset">Сбросить прогресс</button>
+        </div>
+
+        <!-- Экран выбора подуровня -->
+        <div id="level-screen" class="level-screen" style="display:none">
+            <header>
+                <div class="header-left">
+                    <button id="cefr-back-btn" class="btn-back">←</button>
+                    <h1 id="cefr-title">A1 — Начинающий</h1>
+                </div>
+            </header>
+            <div id="level-list" class="level-list"></div>
+        </div>
+
+        <!-- Игровой экран -->
+        <div id="game-screen" class="game-screen" style="display:none">
+            <header>
+                <div class="header-left">
+                    <button id="back-btn" class="btn-back">←</button>
+                    <h1 id="level-title">📖 Уровень 1</h1>
+                </div>
+                <div class="stats">
+                    <span id="counter">0 / 20</span>
+                    <span id="streak">🔥 0</span>
+                </div>
+            </header>
+
+            <div id="card" class="card">
+                <div class="card-emoji" id="word-emoji">🍎</div>
+                <div class="card-body">
+                    <p class="hint" id="hint">— — — — —</p>
+                    <input type="text" id="answer" placeholder="Напишите слово на английском..." autocomplete="off" spellcheck="false">
+                    <div class="buttons">
+                        <button id="check-btn" class="btn-primary">Проверить</button>
+                        <button id="next-btn" class="btn-secondary" style="display:none">Дальше →</button>
+                    </div>
+                    <p id="feedback" class="feedback"></p>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Экран результата -->
+        <div id="result-screen" class="result-screen" style="display:none">
+            <div class="result-emoji" id="result-emoji">🎉</div>
+            <h2 id="result-title">Готово!</h2>
+            <p id="result-text"></p>
+            <div class="result-buttons">
+                <button id="retry-btn" class="btn-secondary">Повторить уровень</button>
+                <button id="next-level-btn" class="btn-primary" style="display:none">Следующий уровень →</button>
+            </div>
+            <button id="back-to-levels-btn" class="btn-text">К выбору уровней</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
