@@ -28,10 +28,13 @@
 
 ## Как запустить локально
 
-```bash
+Скопируйте репозиторий, перейдите в папку и запустите локальный сервер:
 git clone https://github.com/shashkinairina/easy-vocabulary.git
 cd easy-vocabulary
 python3 -m http.server 8000
+
+Откройте  в браузере.
+
 План развития
 
 Озвучка слов через Web Speech API
